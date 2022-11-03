@@ -1,13 +1,13 @@
 #include <stdio.h>
-/* Leia uma data e determine se ela é válida. Ou seja, verifique se o mês está entre 1 e 12, e se o dia existe naquele mês. Note que Fevereiro tem 29 dias em anos bissextos, e 28 dias em anos não bissextos.
- */
+/*38.Leia uma data de nascimento de uma pessoa fornecida através de três números inteiros: Dia, Mês e Ano. Teste a validade desta data para saber se está é uma data válida. Teste se o dia fornecido é um dia válido: dia > 0, dia  28 para o mês de fevereiro (29 se o ano for bissexto), dia  30 em abril, junho, setembro e novembro, dia  31 nos outros meses. Teste a validade do mês: mês > 0 e mês < 13. Teste a validade do ano: ano  ano atual (use uma constante definida com o valor igual a 2022). Imprimir: “data válida” ou “data inválida” no final da execução do programa*/
 int main()
 {
   int dd, mm, yy, rest;
-  printf("Digite uma data (DD/MM/YYYY): ");
+  const int cyy = 2022;
+  printf("Digite sua data de nascimento (DD/MM/YYYY): ");
   scanf("%d/%d/%d", &dd, &mm, &yy);
 
-  if ((dd > 0 && dd <= 31) && (mm > 0 && mm <= 12))
+  if ((dd > 0 && dd <= 31) && (mm > 0 && mm <= 12) && (yy <= cyy))
   {
     switch (mm)
     {
@@ -36,7 +36,7 @@ int main()
         }
       }
       break;
-    //Meses que têm 30 dias
+    // Meses que têm 30 dias
     case 4:
     case 6:
     case 9:
@@ -46,7 +46,7 @@ int main()
       else
         printf("Data valida!");
       break;
-    //Meses que têm 31 dias
+    // Meses que têm 31 dias
     default:
       printf("Data valida!");
       break;
